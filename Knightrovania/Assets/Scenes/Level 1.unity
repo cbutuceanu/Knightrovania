@@ -3881,7 +3881,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 519420032}
-  - {fileID: 1561788760}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714722328
@@ -5832,9 +5831,8 @@ Transform:
   m_LocalPosition: {x: -8.22, y: -3.599, z: 0}
   m_LocalScale: {x: 2.408638, y: 2.408638, z: 2.408638}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1679279958}
-  m_Father: {fileID: 619394802}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1561788761
 Animator:
@@ -5944,7 +5942,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: b6f67e10dd844b6479a63f7549c7ae6b, type: 3}
   m_Resource: {fileID: 8300000, guid: b6f67e10dd844b6479a63f7549c7ae6b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 0.66
   Loop: 0
   Mute: 0
@@ -6146,37 +6144,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1679279957
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1679279958}
-  m_Layer: 0
-  m_Name: Ground Check
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1679279958
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1679279957}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1646, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1561788760}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1727681144
 GameObject:
   m_ObjectHideFlags: 0
@@ -7296,6 +7263,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 619394802}
+  - {fileID: 1561788760}
   - {fileID: 1727681145}
   - {fileID: 1226822465}
   - {fileID: 300907752}
