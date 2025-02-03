@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,15 +10,18 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed = 4f;
 
-    private float jumpingPower = 16f;
+    private float jumpForce = 4.6f;
 
     private bool isFacingRight = true;
+
+    private Vector3 jump;
+
+
 
 
 
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Transform groundcheck;
-    [SerializeField] private LayerMask groundLayer;
+
 
 
 
@@ -24,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+
+
     }
 
     // Update is called once per frame
@@ -31,26 +40,24 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
 
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+
+
+        //Jumping mechanism 
+
+
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+
 
         }
-
-
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-
-        }
-
 
         Flip();
-
 
 
     }
@@ -64,14 +71,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private bool IsGrounded()
-    {
-
-        return Physics2D.OverlapCircle(groundcheck.position, 0.2f, groundLayer);
+    //Grounded Mechanic
 
 
-    }
 
+
+
+
+
+
+    //flip player around if moving opposite direction
     private void Flip()
     {
 
