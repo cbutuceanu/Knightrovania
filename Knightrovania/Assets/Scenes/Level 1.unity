@@ -13427,7 +13427,7 @@ Transform:
   m_GameObject: {fileID: 1561788758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.79, y: 4.53, z: 0}
+  m_LocalPosition: {x: -8.387, y: -3.618, z: 0}
   m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13592,10 +13592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  groundcheck: {fileID: 0}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!70 &1561788766
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
