@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float speed = 2f;
 
-    private float jumpForce = 4f;
+    public float jumpForce = 4f;
 
     private bool isFacingRight = true;
 
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
         {
 
             rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
