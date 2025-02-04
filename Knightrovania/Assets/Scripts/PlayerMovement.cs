@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
 
-    private float speed = 4f;
+    private float speed = 2f;
 
-    private float jumpForce = 4.6f;
+    private float jumpForce = 3.5f;
 
     private bool isFacingRight = true;
 
