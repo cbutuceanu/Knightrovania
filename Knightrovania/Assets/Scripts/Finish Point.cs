@@ -9,8 +9,6 @@ public class FinishPoint : MonoBehaviour
     {
         if (collision.CompareTag("Knightro"))
         {
-
-            Debug.Log("We collided with the door");
             SceneManager.LoadScene("Levlel 2");
         }
     }
