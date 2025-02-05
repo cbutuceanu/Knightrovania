@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,16 +14,33 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 4f;
 
     private bool isFacingRight = true;
+    private bool isGrounded = true;
+
+    public Animator playerAnimator;
 
     private Vector3 jump;
 
+    [SerializeField] private Transform attackPoint;
+    
+    [SerializeField] private float attackRange = .5f;
 
-
-
-
+    [SerializeField] private LayerMask enemyLayer;
+    
     [SerializeField] private Rigidbody2D rb;
+    //This signifies if the player in currently being knocked back
+    [SerializeField] public bool isHit = false;
+    
+    //How far the player will be knocked back
+    public float hitImpact;
+    //How long the player is being knocked back 
+    public float hitDuration;
 
+    public float hitTimer;
 
+    private bool isInvincible = false;
+
+    [SerializeField]
+    private int flashes = 3;
 
 
 
@@ -30,8 +48,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-
+        playerAnimator = GetComponent<Animator>();
+        
+        
 
     }
 
@@ -57,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Attack();
+        }
+
         Flip();
 
 
@@ -65,19 +89,51 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (hitDuration <= 0)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        else
+        {
+            if (isFacingRight)
+            {
+                rb.velocity = new Vector2(-hitImpact, hitImpact);
+                StartCoroutine(Iframes(hitDuration));
+                hitDuration = 0f;
+            }
 
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if (!isFacingRight)
+            {
+                rb.velocity = new Vector2(hitImpact, hitImpact);
+                StartCoroutine(Iframes(hitDuration));
+                hitDuration = 0f;
+            }
+        }
+    
+        
 
     }
 
+    void Attack()
+    {
+        //play attack animation
+        
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayer);
+
+        foreach (Collider2D enemy in enemies)
+        {
+            var temp = enemy.gameObject.GetComponent<EnemyBehavior>();
+            temp.Damage(1);
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(attackPoint.transform.position, attackRange);
+    }
 
     //Grounded Mechanic
-
-
-
-
-
-
+    
 
 
     //flip player around if moving opposite direction
@@ -97,6 +153,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    IEnumerator Iframes(float duration)
+    {
+        float timer = duration / flashes;
+        var temp = gameObject.GetComponent<SpriteRenderer>();
+        Physics2D.IgnoreLayerCollision(0,7, true);
+        for (int i = 0; i < flashes; i++)
+        {
+            temp.color = Color.red;
+            yield return new WaitForSeconds(timer/2);
+            temp.color = Color.white;
+            yield return new WaitForSeconds(timer/2);
+        }
+        Physics2D.IgnoreLayerCollision(0, 7, false);
+
+    }
+
+   
 
 
 }

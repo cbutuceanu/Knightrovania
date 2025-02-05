@@ -1,55 +1,106 @@
+using System;
+using System.Collections;
+using Unity.Mathematics.Geometry;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyBehavior : MonoBehaviour
 {
     //the enemy will patrol these two set points
+    [FormerlySerializedAs("start")] [SerializeField]
+    private GameObject starting_Point;
+
     [SerializeField]
-    private GameObject spawnpoint;
+    private GameObject ending_Point;
+
+    [SerializeField]
+    private float travel_Time;
     
     [SerializeField]
-    private GameObject endpoint;
-
-    [SerializeField] 
-    private float lerpTime;
-
+    private float travelSpeed;
+    
+    private CircleCollider2D body;
     [SerializeField]
-    private float speed;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private int health;
+    [SerializeField]
+    private int max_Health = 2;
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+    private bool isDead;
+    
+
+
+    //start Couroutine for movement
+    private void Start()
     {
-        //Probably should be removed unless anything specific needs to be done with the enemy doing something on spawn
+        isDead = false;
+        StartCoroutine(Patrol());
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Damage(int dmg_Amount)
     {
-        Movement();
+        health = Mathf.Clamp((health - dmg_Amount), 0, 2);
+
+        if (health == 0)
+        {
+            Death();
+        }
     }
 
+    IEnumerator Patrol()
+    {
+        var start = starting_Point.transform.position;
+        var end = ending_Point.transform.position;
+        
+        while (!isDead)
+        {
+            
+            yield return StartCoroutine(Movement(start, end));
+            yield return StartCoroutine(Movement(end, start));
+        }
+    }
+    
     //Lerps the movement of the enemies between two points
     // Could honestly make this a co-routine
-    void Movement()
+    IEnumerator Movement(Vector3 start, Vector3 end)
     {
-        lerpTime = 0;
+        float timer = 0;
 
-        while (lerpTime < 1)
+        while (timer < travel_Time)
         {
-            this.transform.position = Vector3.Lerp(spawnpoint.transform.position, endpoint.transform.position, lerpTime);
-            lerpTime += Time.deltaTime * speed;
-            //when this loop is broken then you should flip the animation
-            //Flip
+            float temp = timer / travel_Time;
+            gameObject.transform.position = Vector2.Lerp(start, end, temp);
+            timer += Time.deltaTime * travelSpeed;
+            yield return null;
         }
-        //Needs to also take account of what direction the enemy is facing then flip
-      
         
+        //flip the animation
+    }
+    
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement>();
+            HealthController hc = other.gameObject.GetComponent<HealthController>();
+            
+            playerMovement.hitDuration = 2f;
+            hc.TakeDamage(damage);
+            // knock the player backwards
+            
+        }
     }
 
-    //Flips the animation
-    void Flip()
+    private void Death()
     {
-        //
+        isDead = true;
+        Destroy(gameObject);
     }
+    //Flips the animation
+   
     
     //I think that the dmg portion of the enemy interaction should be handled on the player side of the interaction 
     //

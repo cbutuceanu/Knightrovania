@@ -12,15 +12,15 @@ public class GameManager : MonoBehaviour
 
     //Event that is triggered when you die
     //Once this event is called the game manager will handle the appropriate code to deal with it
-    public event Action death;
-    //The same logic goes here for when you win & when you point gain
-    public event Action win;
-    public event Action pointchange;
+   
 
     [SerializeField]
-    private int currentpoints;
-    [SerializeField]
-    public int startingpoints = 0;
+    private int maxLives = 3;
+
+    [SerializeField] private int currentLives = 3;
+
+    private GameObject player;
+    
     
     private void Awake()
     {
@@ -36,11 +36,6 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //here the game is just setup to take you to the main menu on start
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -54,20 +49,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void OnScoreChange(int points)
-    {
-        //Set up to increments points any function that would deal with chaning your points would go through here
-        // for example if you needed to make it so that taking dmg reduces score your 
-        currentpoints += points;
-        pointchange?.Invoke();
-    }
-
-    void UpdateScore()
-    {
-        //Saving score in player prefs could work 
-    }
-
     public void OnDeath()
+    {
+        currentLives = Mathf.Clamp((currentLives - 1), 0, maxLives);
+        if (currentLives < 0)
+        {
+            Time.timeScale = 0;
+            OnLoss();
+        }
+        
+        //Re-load the current scene we are in
+        SceneManager.LoadScene("Level 1");
+    }
+    
+    public void OnLoss()
     {
         //this is where the death processes are handled when someone invokes the on death event
         
@@ -78,7 +73,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game Over");
         //set points to zero
         
-        death?.Invoke();
     }
     
     

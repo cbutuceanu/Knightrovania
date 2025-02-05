@@ -1,16 +1,28 @@
+using System;
 using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int currentHealth;
+    public int maxHealth = 3;
+
+    private void Start()
     {
+        currentHealth = maxHealth;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        currentHealth = Mathf.Clamp((currentHealth - damage), 0, maxHealth);
+
+        if (currentHealth <= 0)
+        {
+            GameManager.instance.OnDeath();
+        }
     }
+    
+    
+    
+    
 }
