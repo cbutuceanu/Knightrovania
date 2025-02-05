@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5999344815827841491}
   - component: {fileID: 8029107920331640354}
-  - component: {fileID: 5916332157649656377}
   - component: {fileID: 5980765388592423821}
   m_Layer: 0
   m_Name: FinishPoint
@@ -89,27 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &5916332157649656377
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3883330164516131958}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.54, y: 0.52, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5980765388592423821
 MonoBehaviour:
   m_ObjectHideFlags: 0
