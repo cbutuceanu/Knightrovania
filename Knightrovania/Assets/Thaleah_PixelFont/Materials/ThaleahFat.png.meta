@@ -324,6 +324,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -2034,7 +2047,84 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ThaleahFat_0: -2406979691518281836
+      ThaleahFat_1: 8584156581765424646
+      ThaleahFat_10: -9194456077201556837
+      ThaleahFat_11: 2926372797146626544
+      ThaleahFat_12: 4480777238343306678
+      ThaleahFat_13: 8337773137776200579
+      ThaleahFat_14: -7297028910675935851
+      ThaleahFat_15: 7840035894481493163
+      ThaleahFat_16: 681409088672610868
+      ThaleahFat_17: 8495842305950912108
+      ThaleahFat_18: 1242597950681043206
+      ThaleahFat_19: 4572334000407356814
+      ThaleahFat_2: 3582052890710469183
+      ThaleahFat_20: -3338019574931188730
+      ThaleahFat_21: -1701471046258508546
+      ThaleahFat_22: -1085228795974318673
+      ThaleahFat_23: -492821772033734050
+      ThaleahFat_24: 6956427709820908985
+      ThaleahFat_25: 3966214761678150502
+      ThaleahFat_26: -5188126361271501308
+      ThaleahFat_27: 6561187258984574138
+      ThaleahFat_28: 8868092237150610120
+      ThaleahFat_29: 8720559516560960176
+      ThaleahFat_3: 8430618072397120194
+      ThaleahFat_30: -611563434579543311
+      ThaleahFat_31: 8683770738014472834
+      ThaleahFat_32: -1159172739605189823
+      ThaleahFat_33: 7018059321576843651
+      ThaleahFat_34: 621253956543059330
+      ThaleahFat_35: 3270421091377441751
+      ThaleahFat_36: 1440956396385857906
+      ThaleahFat_37: -723687871926005179
+      ThaleahFat_38: 1338421294454653828
+      ThaleahFat_39: -2984709993833186200
+      ThaleahFat_4: -3522670979429656078
+      ThaleahFat_40: -5023781160340060587
+      ThaleahFat_41: -340386979419582348
+      ThaleahFat_42: 7812021083958953789
+      ThaleahFat_43: 8861072366150045812
+      ThaleahFat_44: 1252912838136916076
+      ThaleahFat_45: -3423822287078110688
+      ThaleahFat_46: -5136008753424740667
+      ThaleahFat_47: 6205583828857091538
+      ThaleahFat_48: 683875302313147306
+      ThaleahFat_49: -97033642052787283
+      ThaleahFat_5: 3224402233203778439
+      ThaleahFat_50: 1442991219885793839
+      ThaleahFat_51: 1405772084054741791
+      ThaleahFat_52: 4085548191510836684
+      ThaleahFat_53: -2453034378822293455
+      ThaleahFat_54: -1792033813118822650
+      ThaleahFat_55: -713907341009276705
+      ThaleahFat_56: 4273104943834543752
+      ThaleahFat_57: 2643148555368027189
+      ThaleahFat_58: -7915660692737527882
+      ThaleahFat_59: 6439190149938371711
+      ThaleahFat_6: 8226173373880994645
+      ThaleahFat_60: 2620939055258670287
+      ThaleahFat_61: 3376386062576445867
+      ThaleahFat_62: 2712636122564766464
+      ThaleahFat_63: 5429615381078722593
+      ThaleahFat_64: 1183224997277540050
+      ThaleahFat_65: -475493995424475278
+      ThaleahFat_66: -8177167391205270848
+      ThaleahFat_67: -2628905624943171434
+      ThaleahFat_68: 4843769886583521944
+      ThaleahFat_69: 8300542690568280052
+      ThaleahFat_7: -2661561651197577565
+      ThaleahFat_70: -3229680329911499486
+      ThaleahFat_71: -7040448277286798344
+      ThaleahFat_72: -6610448787026917835
+      ThaleahFat_73: 4115402728376702904
+      ThaleahFat_74: -4893566117324867825
+      ThaleahFat_75: 5193290105172139109
+      ThaleahFat_76: 175906378800075586
+      ThaleahFat_8: 4549926694724652766
+      ThaleahFat_9: -4373728378123238153
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
