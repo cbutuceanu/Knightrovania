@@ -1393,8 +1393,8 @@ GameObject:
   - component: {fileID: 743879335}
   - component: {fileID: 743879339}
   - component: {fileID: 743879338}
-  - component: {fileID: 743879340}
   - component: {fileID: 743879336}
+  - component: {fileID: 743879340}
   m_Layer: 5
   m_Name: Play button
   m_TagString: Untagged
@@ -1466,9 +1466,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CreditsScript, Assembly-CSharp
-        m_MethodName: CreditsTP
+      - m_Target: {fileID: 743879340}
+        m_TargetAssemblyTypeName: Level1Script, Assembly-CSharp
+        m_MethodName: LVL1TP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 743879334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba6447e247f1024c940109691126642, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f532e2228f44dd4a96fffe1134483cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &792056345
@@ -1764,8 +1764,8 @@ GameObject:
   - component: {fileID: 824504022}
   - component: {fileID: 824504025}
   - component: {fileID: 824504024}
-  - component: {fileID: 824504026}
   - component: {fileID: 824504023}
+  - component: {fileID: 824504026}
   m_Layer: 5
   m_Name: Exit game button
   m_TagString: Untagged
@@ -1838,8 +1838,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 824504026}
-        m_TargetAssemblyTypeName: CreditsScript, Assembly-CSharp
-        m_MethodName: CreditsTP
+        m_TargetAssemblyTypeName: ExitGameScript, Assembly-CSharp
+        m_MethodName: CloseGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 824504021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cfec87427519744fb93b44206fb52b5, type: 3}
+  m_Script: {fileID: 11500000, guid: a10d28672ba345048810b1c672420f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &847669082
