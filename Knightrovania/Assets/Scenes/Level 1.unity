@@ -5649,7 +5649,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -8916,7 +8916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.04}
   m_AnchorMin: {x: 0, y: 0.8988653}
   m_AnchorMax: {x: 1, y: 0.91200006}
-  m_AnchoredPosition: {x: -21.894043, y: -1.4199982}
+  m_AnchoredPosition: {x: -21.894043, y: -1.4199829}
   m_SizeDelta: {x: 44.3055, y: -3.9133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888472958
@@ -8991,7 +8991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0050000004, y: 0.9422603}
   m_AnchorMax: {x: 0.090246886, y: 0.9944795}
-  m_AnchoredPosition: {x: 431.7, y: -7.599991}
+  m_AnchoredPosition: {x: 431.7, y: -7.5999756}
   m_SizeDelta: {x: 0.39511108, y: -0.00340271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &894066076
@@ -9199,7 +9199,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9663,7 +9663,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11467,7 +11467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0050000004, y: 0.9422603}
   m_AnchorMax: {x: 0.090246886, y: 0.9944795}
-  m_AnchoredPosition: {x: 673.2001, y: -7.599991}
+  m_AnchoredPosition: {x: 673.2001, y: -7.5999756}
   m_SizeDelta: {x: 58.0342, y: -0.0034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142811282
@@ -13631,7 +13631,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -14429,7 +14429,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 4
+  playerAnimator: {fileID: 0}
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
   rb: {fileID: 1561788763}
+  isHit: 0
+  hitImpact: 0
+  hitDuration: 0
+  hitTimer: 0
+  flashes: 3
 --- !u!70 &1561788766
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -16846,7 +16857,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -17022,7 +17033,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -17461,7 +17472,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.19, y: 0.35}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
