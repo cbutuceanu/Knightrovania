@@ -14,29 +14,32 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 4f;
 
     private bool isFacingRight = true;
-    private bool isGrounded = true;
-
+    public bool isGrounded;
     public Animator playerAnimator;
 
     private Vector3 jump;
 
+    public LayerMask GroundLayer;
+
+    public BoxCollider2D GroundCollider;
+
     [SerializeField] private Transform attackPoint;
-    
+
     [SerializeField] private float attackRange = .5f;
 
     [SerializeField] private LayerMask enemyLayer;
-    
+
     [SerializeField] private Rigidbody2D rb;
     //This signifies if the player in currently being knocked back
     [SerializeField] public bool isHit = false;
-    
+
     //How far the player will be knocked back
     public float hitImpact;
     //How long the player is being knocked back 
     public float hitDuration;
 
     public float hitTimer;
-    
+
 
     [SerializeField]
     private int flashes = 3;
@@ -48,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
-        
-        
+        isGrounded = true;
+
 
     }
 
@@ -58,19 +61,20 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
+        //jump = new Vector3(0.0f, 2.0f, 0.0f);
 
 
 
 
         //Jumping mechanism 
 
+        //|| Input.GetKeyDown(KeyCode.Space)
 
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
         {
 
             rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+            isGrounded = false;
 
 
         }
@@ -108,15 +112,15 @@ public class PlayerMovement : MonoBehaviour
                 hitDuration = 0f;
             }
         }
-    
-        
+
+
 
     }
 
     void Attack()
     {
         //play attack animation
-        
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayer);
 
         foreach (Collider2D enemy in enemies)
@@ -132,7 +136,43 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Grounded Mechanic
-    
+
+
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (GroundLayer == 6)
+        {
+
+            isGrounded = true;
+
+
+        }
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //flip player around if moving opposite direction
@@ -156,19 +196,20 @@ public class PlayerMovement : MonoBehaviour
     {
         float timer = duration / flashes;
         var temp = gameObject.GetComponent<SpriteRenderer>();
-        Physics2D.IgnoreLayerCollision(0,7, true);
+        Physics2D.IgnoreLayerCollision(0, 7, true);
         for (int i = 0; i < flashes; i++)
         {
             temp.color = Color.red;
-            yield return new WaitForSeconds(timer/2);
+            yield return new WaitForSeconds(timer / 2);
             temp.color = Color.white;
-            yield return new WaitForSeconds(timer/2);
+            yield return new WaitForSeconds(timer / 2);
         }
         Physics2D.IgnoreLayerCollision(0, 7, false);
 
     }
 
-   
+
 
 
 }
+
