@@ -57,9 +57,9 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             OnLoss();
         }
-        
-        //Re-load the current scene we are in
-        SceneManager.LoadScene("Level 1");
+
+        var temp = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(temp.buildIndex);
     }
     
     public void OnLoss()
