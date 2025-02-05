@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Starting screen.unity
     guid: 4193a439b70ec93459ad74f8751c93a9
+  - enabled: 1
+    path: Assets/Scenes/Levlel 2.unity
+    guid: 11ea29c01628fa645b846880b8e40b41
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
