@@ -36,8 +36,7 @@ public class PlayerMovement : MonoBehaviour
     public float hitDuration;
 
     public float hitTimer;
-
-    private bool isInvincible = false;
+    
 
     [SerializeField]
     private int flashes = 3;
