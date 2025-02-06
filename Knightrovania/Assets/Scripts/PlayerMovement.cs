@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         jump = new Vector3(0.0f, 2.0f, 0.0f);
+        playerAnimator.SetFloat("Speed", Mathf.Abs(horizontal));
 
 
         //Jumping 
@@ -73,6 +74,18 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
             }
 
+            if (rb.velocityY > 0)
+            {
+                playerAnimator.SetBool("isJumping" ,true);
+            }
+
+        }
+        
+        //checks if your grounded and not in the process of jumping and plays animations
+        
+        if (rb.velocityY == 0)
+        {
+            playerAnimator.SetBool("isJumping" ,false);
         }
         
         //Attacking
@@ -80,8 +93,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Attack();
+            
+            
         }
-
+        
         Flip();
 
 
@@ -119,8 +134,10 @@ public class PlayerMovement : MonoBehaviour
     void Attack()
     {
         //play attack animation
+        playerAnimator.SetTrigger("Attack");
 
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.transform.position, attackRange, enemyLayer);
+        
 
         foreach (Collider2D enemy in enemies)
         {
