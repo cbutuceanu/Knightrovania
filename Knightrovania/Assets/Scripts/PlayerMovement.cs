@@ -80,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         
         //checks if your grounded and not in the process of jumping and plays animations
         
@@ -170,7 +175,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Iframes(float duration)
     {
-        float timer = duration / flashes;
+        float timer = 0;
+        
+        timer = duration / flashes;
         var temp = gameObject.GetComponent<SpriteRenderer>();
         Physics2D.IgnoreLayerCollision(0, 7, true);
         for (int i = 0; i < flashes; i++)

@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8376545472468641531}
   - component: {fileID: 4342440563955810258}
   - component: {fileID: 529194732904639584}
+  - component: {fileID: 3414260606398060389}
   m_Layer: 0
   m_Name: Player
   m_TagString: Knightro
@@ -337,3 +338,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.0050516236}
   m_Size: {x: 0.18999998, y: 0.33989668}
   m_Direction: 0
+--- !u!114 &3414260606398060389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7391373332994766198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e55ea94b7a0724ead332b912f2aa9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 3

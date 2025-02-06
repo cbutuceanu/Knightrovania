@@ -29,6 +29,8 @@ public class EnemyBehavior : MonoBehaviour
     private int damage = 1;
     [SerializeField]
     private bool isDead;
+
+    private int scoreValue;
     
 
 
@@ -38,6 +40,7 @@ public class EnemyBehavior : MonoBehaviour
         isDead = false;
         StartCoroutine(Patrol());
     }
+    
 
 
     public void Damage(int dmg_Amount)
@@ -78,11 +81,14 @@ public class EnemyBehavior : MonoBehaviour
         }
         
         //flip the animation
+        Vector3 localscale = transform.localScale;
+        localscale.x *= -1f;
+        transform.localScale = localscale;
     }
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Knightro"))
         {
             PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement>();
             HealthController hc = other.gameObject.GetComponent<HealthController>();
@@ -97,10 +103,10 @@ public class EnemyBehavior : MonoBehaviour
     private void Death()
     {
         isDead = true;
+        GameManager.
         Destroy(gameObject);
     }
-    //Flips the animation
-   
+    
     
     //I think that the dmg portion of the enemy interaction should be handled on the player side of the interaction 
     //

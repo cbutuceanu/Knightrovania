@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2856090534106670336}
   m_Layer: 7
   m_Name: Skeleton_Base
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,7 +144,7 @@ SpriteRenderer:
   m_SortingLayerID: -1143537071
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8659750876414923269, guid: f7a56febbf9d0f148a8b813ba5386b2d, type: 3}
+  m_Sprite: {fileID: 6549847137852712889, guid: 0f601ba7988c3bf46be7311691f49964, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +165,7 @@ Animator:
   m_GameObject: {fileID: 5787738518489419243}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3a47435c75bc2d408d4438b6247c444, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -257,3 +257,7 @@ MonoBehaviour:
   ending_Point: {fileID: 4033567875050948711}
   travel_Time: 2
   travelSpeed: 1
+  health: 0
+  max_Health: 2
+  damage: 2
+  isDead: 0
