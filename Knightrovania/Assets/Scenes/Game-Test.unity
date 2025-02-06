@@ -12773,7 +12773,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0869565, y: 1.0869565}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -12818,7 +12818,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.0869565, y: 1.0869565}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.0869565, y: 1.0869565}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -13403,15 +13403,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 4
+  isGrounded: 1
   playerAnimator: {fileID: 0}
-  attackPoint: {fileID: 329240159}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundCollider: {fileID: 0}
+  attackPoint: {fileID: 0}
   attackRange: 0.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   rb: {fileID: 1561788763}
   isHit: 0
-  hitImpact: 5
+  hitImpact: 0
   hitDuration: 0
   hitTimer: 0
   flashes: 3
