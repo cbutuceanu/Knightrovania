@@ -61,23 +61,21 @@ public class PlayerMovement : MonoBehaviour
     {
 
         horizontal = Input.GetAxisRaw("Horizontal");
-        //jump = new Vector3(0.0f, 2.0f, 0.0f);
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
 
 
+        //Jumping 
 
-
-        //Jumping mechanism 
-
-        //|| Input.GetKeyDown(KeyCode.Space)
-
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-
-            rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
-
+            if (rb.velocityY == 0)
+            {
+                rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+            }
 
         }
+        
+        //Attacking
 
         if (Input.GetKeyDown(KeyCode.X))
         {
@@ -95,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         if (hitDuration <= 0)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            
         }
         else
         {
@@ -134,47 +133,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.DrawWireSphere(attackPoint.transform.position, attackRange);
     }
-
-    //Grounded Mechanic
-
-
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (GroundLayer == 6)
-        {
-
-            isGrounded = true;
-
-
-        }
-
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     //flip player around if moving opposite direction
     private void Flip()
     {
