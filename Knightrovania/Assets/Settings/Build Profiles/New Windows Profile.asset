@@ -19,8 +19,6 @@ MonoBehaviour:
     rid: 656073153835958272
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/Scenes/Starting screen.unity
-  - m_enabled: 1
     m_path: Assets/Scenes/Level Order/Level 1.unity
   - m_enabled: 1
     m_path: Assets/Scenes/Level Order/Levlel 2.unity
