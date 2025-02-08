@@ -102,6 +102,11 @@ public class PlayerMovement : MonoBehaviour
             
         }
         
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("Game Over");
+        }
+        
         Flip();
 
 
