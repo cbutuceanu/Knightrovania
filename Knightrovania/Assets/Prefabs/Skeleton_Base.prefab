@@ -261,3 +261,4 @@ MonoBehaviour:
   max_Health: 2
   damage: 2
   isDead: 0
+  scoreValue: 100

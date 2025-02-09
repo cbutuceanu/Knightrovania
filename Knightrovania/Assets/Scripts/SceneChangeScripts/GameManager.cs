@@ -7,9 +7,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public SceneManager sceneManager;
     
-    
     [SerializeField]
     private int maxLives = 3;
+
+    private int score;
 
     [SerializeField] private int currentLives = 3;
 
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        EnemyBehavior.onKill += ScoreUpdate;
     }
 
     public void OnDeath()
@@ -59,6 +61,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(temp.buildIndex);
         }
         
+    }
+
+    private void ScoreUpdate(int value)
+    {
+        score += value;
+        Debug.Log("Score: " + score);
     }
     
     

@@ -30,7 +30,10 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private bool isDead;
 
+    [SerializeField]
     private int scoreValue;
+
+    public static event Action<int> onKill;
     
 
 
@@ -38,7 +41,10 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
         isDead = false;
-        StartCoroutine(Patrol());
+        if (!isDead)
+        {
+            StartCoroutine(Patrol());
+        }
     }
     
 
@@ -49,7 +55,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (health == 0)
         {
-            Death();
+            Death(scoreValue);
         }
     }
 
@@ -60,7 +66,6 @@ public class EnemyBehavior : MonoBehaviour
         
         while (!isDead)
         {
-            
             yield return StartCoroutine(Movement(start, end));
             yield return StartCoroutine(Movement(end, start));
         }
@@ -70,44 +75,57 @@ public class EnemyBehavior : MonoBehaviour
     // Could honestly make this a co-routine
     IEnumerator Movement(Vector3 start, Vector3 end)
     {
-        float timer = 0;
-
-        while (timer < travel_Time)
+        if (!isDead)
         {
-            float temp = timer / travel_Time;
-            gameObject.transform.position = Vector2.Lerp(start, end, temp);
-            timer += Time.deltaTime * travelSpeed;
-            yield return null;
-        }
+            float timer = 0;
+
+            while (timer < travel_Time)
+            {
+                float temp = timer / travel_Time;
+                gameObject.transform.position = Vector2.Lerp(start, end, temp);
+                timer += Time.deltaTime * travelSpeed;
+                yield return null;
+            }
         
-        //flip the animation
-        Vector3 localscale = transform.localScale;
-        localscale.x *= -1f;
-        transform.localScale = localscale;
+            //flip the animation
+            Vector3 localscale = transform.localScale;
+            localscale.x *= -1f;
+            transform.localScale = localscale;
+        }
+       
     }
     
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Knightro"))
+        if (!isDead)
         {
-            PlayerMovement playerMovement = other.gameObject.GetComponent<PlayerMovement>();
-            HealthController hc = other.gameObject.GetComponent<HealthController>();
+            if (other.gameObject.CompareTag("Knightro"))
+            {
+                PlayerMovement playerMovement = GameObject.FindAnyObjectByType<PlayerMovement>();
+                HealthController hc = other.gameObject.GetComponent<HealthController>();
             
-            playerMovement.hitDuration = 2f;
-            hc.TakeDamage(damage);
-            // knock the player backwards
+                playerMovement.hitDuration = 2f;
+                hc.TakeDamage(damage);
+                // knock the player backwards
             
+            }
         }
     }
 
-    private void Death()
+    private void Death(int value)
     {
         isDead = true;
-        GameManager.
-        Destroy(gameObject);
+        onKill?.Invoke(value);
+        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
-    
-    
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+
     //I think that the dmg portion of the enemy interaction should be handled on the player side of the interaction 
     //
     

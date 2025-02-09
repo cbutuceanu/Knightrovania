@@ -180,6 +180,7 @@ MonoBehaviour:
   max_Health: 1
   damage: 1
   isDead: 0
+  scoreValue: 200
 --- !u!1 &2561287471553622519
 GameObject:
   m_ObjectHideFlags: 0
