@@ -297,7 +297,7 @@ MonoBehaviour:
     m_Bits: 128
   rb: {fileID: 750025638313889805}
   isHit: 0
-  hitImpact: 0
+  hitImpact: 5
   hitDuration: 0
   hitTimer: 0
   flashes: 3
@@ -352,3 +352,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 3
+  currentLives: 0
+  maxLives: 0

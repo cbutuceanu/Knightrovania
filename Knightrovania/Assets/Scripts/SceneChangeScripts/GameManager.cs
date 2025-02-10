@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int currentLives = 3;
 
     public event Action onDeath;
-    public float timer;
+    public float gameTimer = 180f;
+    private bool isTimerActive;
     
     
     private void Awake()
@@ -34,7 +35,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        if (isTimerActive)
+        {
+            gameTimer -= Time.deltaTime;
+            //clamp this shit so it cant go past zero
+            //the moment it does everything should stop
+
+            if (gameTimer == 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+            
+            //Format the timer to send to the UI
+        }
+       
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
+        isTimerActive = true;
         EnemyBehavior.onKill += ScoreUpdate;
     }
 
