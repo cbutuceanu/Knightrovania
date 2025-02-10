@@ -18,7 +18,10 @@ public class FinishPoint : MonoBehaviour
     {
         if (collision.CompareTag("Knightro"))
         {
+            Debug.Log("The collosion occured");
             onDoorEnter?.Invoke(buildIndex);
         }
+
     }
+
 }
