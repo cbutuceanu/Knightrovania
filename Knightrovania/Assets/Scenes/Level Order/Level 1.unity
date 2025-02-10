@@ -11588,24 +11588,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 192828809581256835, guid: 164dbe5c675869948b97013670b7088b, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372762001432654446, guid: 164dbe5c675869948b97013670b7088b, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.4045312
-      objectReference: {fileID: 0}
-    - target: {fileID: 4372762001432654446, guid: 164dbe5c675869948b97013670b7088b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -2.100006
-      objectReference: {fileID: 0}
-    - target: {fileID: 4632085936577060856, guid: 164dbe5c675869948b97013670b7088b, type: 3}
-      propertyPath: m_text
-      value: 'Level 1
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 7345082730698726298, guid: 164dbe5c675869948b97013670b7088b, type: 3}
       propertyPath: m_Name
       value: UI
