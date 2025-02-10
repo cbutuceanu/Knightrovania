@@ -20,7 +20,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField]
     private float travelSpeed;
     
-    private CircleCollider2D body;
+    private Rigidbody2D body;
     [SerializeField]
     private int health;
     [SerializeField]
@@ -29,6 +29,18 @@ public class EnemyBehavior : MonoBehaviour
     private int damage = 1;
     [SerializeField]
     private bool isDead;
+<<<<<<< Updated upstream
+=======
+
+    [SerializeField]
+    private int scoreValue;
+
+    [SerializeField] private Vector2 v2start;
+    [SerializeField] private Vector2 v2end;
+    private bool isFacingRight = false;
+
+    public static event Action<int> onKill;
+>>>>>>> Stashed changes
     
 
 
@@ -36,8 +48,27 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
         isDead = false;
+<<<<<<< Updated upstream
         StartCoroutine(Patrol());
     }
+=======
+        v2start = starting_Point.transform.position;
+        v2end = ending_Point.transform.position;
+
+        body = gameObject.GetComponent<Rigidbody2D>();
+        
+        
+    }
+
+    private void FixedUpdate()
+    {
+
+        StartCoroutine(Patrol(v2start, v2end));
+        
+    }
+    
+    
+>>>>>>> Stashed changes
 
 
     public void Damage(int dmg_Amount)
@@ -49,11 +80,20 @@ public class EnemyBehavior : MonoBehaviour
             Death();
         }
     }
-
-    IEnumerator Patrol()
+    
+    private void Death(int value)
     {
-        var start = starting_Point.transform.position;
-        var end = ending_Point.transform.position;
+        isDead = true;
+        onKill?.Invoke(value);
+        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    
+    
+  
+    IEnumerator Patrol(Vector2 start, Vector2 end)
+    {
         
         while (!isDead)
         {
@@ -65,21 +105,34 @@ public class EnemyBehavior : MonoBehaviour
     
     //Lerps the movement of the enemies between two points
     // Could honestly make this a co-routine
-    IEnumerator Movement(Vector3 start, Vector3 end)
+    IEnumerator Movement(Vector2 start, Vector2 end)
     {
         float timer = 0;
 
+<<<<<<< Updated upstream
         while (timer < travel_Time)
         {
             float temp = timer / travel_Time;
             gameObject.transform.position = Vector2.Lerp(start, end, temp);
             timer += Time.deltaTime * travelSpeed;
             yield return null;
+=======
+            while (timer < travel_Time)
+            {
+                float temp = timer / travel_Time;
+                gameObject.transform.position = Vector2.Lerp(start, end, temp);
+                timer += Time.deltaTime * travelSpeed;
+                yield return StartCoroutine(Movement(v2end, v2start));;
+            }
+            
+>>>>>>> Stashed changes
         }
         
         //flip the animation
     }
+
     
+<<<<<<< Updated upstream
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -102,6 +155,12 @@ public class EnemyBehavior : MonoBehaviour
     //Flips the animation
    
     
+=======
+
+ 
+
+
+>>>>>>> Stashed changes
     //I think that the dmg portion of the enemy interaction should be handled on the player side of the interaction 
     //
     

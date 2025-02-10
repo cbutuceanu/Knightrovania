@@ -49,8 +49,14 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+<<<<<<< Updated upstream
         
         
+=======
+        isGrounded = true;
+        
+
+>>>>>>> Stashed changes
 
     }
 
@@ -109,9 +115,14 @@ public class PlayerMovement : MonoBehaviour
                 hitDuration = 0f;
             }
         }
+<<<<<<< Updated upstream
     
         
 
+=======
+
+        
+>>>>>>> Stashed changes
     }
 
     void Attack()

@@ -33,6 +33,31 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+<<<<<<< Updated upstream
+=======
+        
+    }
+
+    private void Update()
+    {
+        if (isTimerActive)
+        {
+            gameTimer -= Time.deltaTime;
+            
+            
+            
+            //clamp this shit so it cant go past zero
+            //the moment it does everything should stop
+
+            if (gameTimer == 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+            
+            //Format the timer to send to the UI
+        }
+       
+>>>>>>> Stashed changes
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
